@@ -3,9 +3,7 @@ import java.util.Scanner;
 public class Usuario {
     private String moedaEscolhida;
 
-    public String escolheMoedaBase(){
-        Scanner leitor = new Scanner(System.in);
-        System.out.println("Escolha a moeda base:");
+    public void mostraOpcoes(){
         System.out.println("""
                 Opções: 0- Encerrar
                         1- Peso Argentino
@@ -14,6 +12,12 @@ public class Usuario {
                         4- Peso chileno
                         5- Peso colombiano
                         6- Dólar americano""");
+    }
+
+    public String escolheMoedaBase(){
+        Scanner leitor = new Scanner(System.in);
+        System.out.println("Escolha a moeda base:");
+        mostraOpcoes();
         int escolhaBase = leitor.nextInt();
         while(escolhaBase > 6){
             System.out.println("Valor inválido escolhido.");
@@ -47,15 +51,7 @@ public class Usuario {
     public String escolheMoedaAlvo(Conversor conversor, Moeda moedas){
         Scanner leitor = new Scanner(System.in);
         System.out.println("Escolha a moeda para conversão: ");
-        System.out.println("""
-                Opções: 0- Encerrar
-                        1- Peso Argentino
-                        2- Boliviano boliviano
-                        3- Real brasileiro
-                        4- Peso chileno
-                        5- Peso colombiano
-                        6- Dólar americano""");
-
+        mostraOpcoes();
         int escolhaAlvo = leitor.nextInt();
         while(escolhaAlvo > 6){
             System.out.println("Valor inválido escolhido.");
