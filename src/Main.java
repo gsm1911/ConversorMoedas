@@ -25,15 +25,13 @@ public class Main {
                 } else{
                     valorBase = Double.parseDouble(valorBaseString);
                 }
-
                 conversor.setValorBase(valorBase);
+                
                 moedaEscolhida = usuario.escolheMoedaBase();
-
                 if (moedaEscolhida.equals("0")) {
                     break;
                 }
 
-                //Builds then sends the HTTP request to the Exchange Rate API.
                 JsonObject jsonObject = conector.getJson(usuario.getMoedaEscolhida());
                 Moeda moedas = gson.fromJson(jsonObject.get("conversion_rates"), Moeda.class);
 
